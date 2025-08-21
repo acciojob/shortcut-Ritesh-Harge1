@@ -1,8 +1,21 @@
-function shortcut(s1, s2) {
-  // your code here
-}
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-// Do not change the code below.
-const s1 = prompt("Enter s1:");
-const s2 = prompt("Enter s2:");
-alert(shortcut(s1, s2));
+let input = [];
+
+rl.on("line", function(line) {
+    input.push(line.trim());
+}).on("close", function() {
+    let [str1, str2] = input[0].split(" ");
+
+    function shortcut(a, b) {
+        if (!a || !b) return "";
+        return a[0] + b[0];
+    }
+
+    console.log(shortcut(str1, str2));
+});
+
